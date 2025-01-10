@@ -13,13 +13,14 @@ class AuthProvider with ChangeNotifier {
     notifyListeners();
   }
 
+//for log in purpose
   void logIn(String email, String password) async {
     try {
       setLoader(true);
       var response = await http.post(Uri.parse('https://reqres.in/api/login'),
           body: {'email': email, 'password': password});
       if (response.statusCode == 200) {
-         setLoader(false);
+        setLoader(false);
         print("Login Successflu");
       } else {
         setLoader(false);
