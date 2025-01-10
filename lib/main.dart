@@ -5,6 +5,7 @@ import 'package:flutter_provider_state/provider/favorite_provider.dart';
 import 'package:flutter_provider_state/provider/slider_provider.dart';
 import 'package:flutter_provider_state/provider/theme_changer_provider.dart';
 import 'package:flutter_provider_state/screens/login_screen.dart';
+import 'package:flutter_provider_state/screens/welcome_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {

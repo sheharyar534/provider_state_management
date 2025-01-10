@@ -35,7 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
             TextFormField(
               controller: emailController,
               decoration: InputDecoration(
-                hintText: 'Enter Email',
+                hintText: 'Enter Email eg.eve.holt@reqres.in',
                 suffixIcon: Icon(Icons.email),
               ),
             ),
@@ -45,7 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
             TextFormField(
               controller: passwordController,
               decoration: InputDecoration(
-                hintText: 'Enter Password',
+                hintText: 'Enter Password eg.cityslicka',
                 suffixIcon: IconButton(
                     onPressed: () {}, icon: Icon(Icons.remove_red_eye)),
               ),
@@ -53,31 +53,30 @@ class _LoginScreenState extends State<LoginScreen> {
             SizedBox(
               height: 50,
             ),
-             Consumer<AuthProvider>(builder: (context, value, child){
-              return  GestureDetector(
-              onTap: () {
-                final email = emailController.text.trim();
-                final password = passwordController.text.trim();
-                value.logIn(email, password);
-              },
-              child: Container(
-                height: 50,
-                width: 300,
-                decoration: BoxDecoration(
-                    color: Colors.blueAccent,
-                    borderRadius: BorderRadius.circular(30)),
-                child: Center(
-                    child: value.isLoading
-                        ? CircularProgressIndicator(
-                            color: Colors.white,
-                          )
-                        : Text("login",
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 20))),
-              ),
-            );
-             }
-             )
+            Consumer<AuthProvider>(builder: (context, value, child) {
+              return GestureDetector(
+                onTap: () {
+                  final email = emailController.text.trim();
+                  final password = passwordController.text.trim();
+                  value.logIn(context ,email, password);
+                },
+                child: Container(
+                  height: 50,
+                  width: 300,
+                  decoration: BoxDecoration(
+                      color: Colors.blueAccent,
+                      borderRadius: BorderRadius.circular(30)),
+                  child: Center(
+                      child: value.isLoading
+                          ? CircularProgressIndicator(
+                              color: Colors.white,
+                            )
+                          : Text("login",
+                              style: TextStyle(
+                                  color: Colors.white, fontSize: 20))),
+                ),
+              );
+            })
           ],
         ),
       ),
